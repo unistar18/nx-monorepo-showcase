@@ -1,0 +1,9 @@
+{
+  "name": "admin-data",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/admin/data/src",
+  "projectType": "library",
+  "tags": ["type:data", "scope:admin"],
+  "// targets": "to see all targets run: nx show project admin-data --web",
+  "targets": {}
+}

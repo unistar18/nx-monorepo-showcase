@@ -1,0 +1,9 @@
+{
+  "generators": {
+    "domain-lib": {
+      "factory": "./src/generators/domain-lib/domain-lib",
+      "schema": "./src/generators/domain-lib/schema.json",
+      "description": "domain-lib generator"
+    }
+  }
+}

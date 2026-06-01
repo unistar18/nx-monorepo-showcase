@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "$id": "DomainLib",
+  "title": "Create a domain library with enforced tags",
+  "description": "Scaffolds a library under libs/<domain>/<name>, delegates to the correct framework library generator, and applies type:<type> + scope:<domain> tags automatically so the module-boundary rules can never be violated by a forgotten tag.",
+  "type": "object",
+  "properties": {
+    "domain": {
+      "type": "string",
+      "description": "Business domain / scope (e.g. shop, admin, shared).",
+      "$default": { "$source": "argv", "index": 0 },
+      "x-prompt": "Which domain (scope) does this library belong to?"
+    },
+    "name": {
+      "type": "string",
+      "description": "Library name within the domain (e.g. feature-cart).",
+      "$default": { "$source": "argv", "index": 1 },
+      "x-prompt": "What is the library name?"
+    },
+    "type": {
+      "type": "string",
+      "description": "Architectural layer (controls the type: tag).",
+      "enum": ["feature", "ui", "data", "util", "model"],
+      "x-prompt": {
+        "message": "Which architectural layer?",
+        "type": "list",
+        "items": ["feature", "ui", "data", "util", "model"]
+      }
+    },
+    "framework": {
+      "type": "string",
+      "description": "Framework library generator to delegate to.",
+      "enum": ["none", "react"],
+      "default": "none"
+    }
+  },
+  "required": ["domain", "name", "type"]
+}
